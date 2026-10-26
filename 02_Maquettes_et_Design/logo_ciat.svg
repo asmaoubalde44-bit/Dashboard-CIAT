@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 120" width="100%" height="100%">
+  <defs>
+    <linearGradient id="gradBrand" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#801b2a"/>
+      <stop offset="100%" stop-color="#4d0e17"/>
+    </linearGradient>
+    <linearGradient id="gradGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="50%" stop-color="#d97706"/>
+      <stop offset="100%" stop-color="#b45309"/>
+    </linearGradient>
+    <linearGradient id="gradCyan" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#0369a1"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Logo Mark Icon -->
+  <g transform="translate(15, 12)" filter="url(#shadow)">
+    <!-- Base geometric hexagon for technology -->
+    <path d="M 45 6 L 82 27 L 82 71 L 45 92 L 8 71 L 8 27 Z" fill="url(#gradBrand)" stroke="#d97706" stroke-width="2.5" />
+    
+    <!-- Dynamic Innovation Arch / Seed of Incubation -->
+    <path d="M 28 65 C 28 42, 45 28, 62 28 C 55 35, 52 46, 52 56 C 52 68, 60 76, 68 80 C 50 82, 28 78, 28 65 Z" fill="url(#gradGold)" />
+    
+    <!-- Tech Node & AI Sparkle -->
+    <circle cx="45" cy="46" r="6.5" fill="#ffffff" />
+    <circle cx="62" cy="32" r="4" fill="#38bdf8" />
+    <line x1="45" y1="46" x2="62" y2="32" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+    
+    <!-- Circuit lines -->
+    <path d="M 25 38 L 36 44 M 24 55 L 36 50 M 55 58 L 65 65" stroke="rgba(255,255,255,0.7)" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <!-- Typography: CIAT -->
+  <text x="120" y="56" font-family="'Outfit', 'Plus Jakarta Sans', 'Segoe UI', sans-serif" font-weight="900" font-size="44" fill="#1e293b" letter-spacing="1.5">
+    CIAT
+  </text>
+  
+  <!-- Accent Badge: DECISION -->
+  <rect x="250" y="24" width="135" height="24" rx="12" fill="url(#gradGold)" />
+  <text x="317" y="40" font-family="'Plus Jakarta Sans', 'Segoe UI', sans-serif" font-weight="800" font-size="11" fill="#ffffff" text-anchor="middle" letter-spacing="1.2">
+    DÉCISIONNEL
+  </text>
+
+  <!-- Subtitle: Full Name -->
+  <text x="122" y="77" font-family="'Plus Jakarta Sans', 'Segoe UI', sans-serif" font-weight="700" font-size="13" fill="#801b2a" letter-spacing="0.5">
+    CENTRE D'INNOVATION, D'APPLICATION &amp; DE TRANSFERT
+  </text>
+
+  <!-- Institution: ISEP Amadou Trawaré de Diamniadio -->
+  <text x="122" y="97" font-family="'Plus Jakarta Sans', 'Segoe UI', sans-serif" font-weight="600" font-size="11.5" fill="#64748b" letter-spacing="0.4">
+    ISEP Amadou Trawaré de Diamniadio • Incubateur Technologique
+  </text>
+</svg>

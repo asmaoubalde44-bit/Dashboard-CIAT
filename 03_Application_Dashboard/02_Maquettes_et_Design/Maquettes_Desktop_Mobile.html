@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Livrable 2 - Maquettes Desktop & Mobile | CIAT Décisionnel - ISEP Diamniadio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #801b2a;
+      --primary-light: #9e2335;
+      --gold: #d97706;
+      --gold-light: #f59e0b;
+      --bg-dark: #0f172a;
+      --card-dark: #1e293b;
+      --border-dark: rgba(255, 255, 255, 0.1);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-main);
+      padding: 30px 20px;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    header.doc-header {
+      background: linear-gradient(135deg, rgba(128, 27, 42, 0.9), rgba(15, 23, 42, 0.95));
+      border: 1px solid var(--border-dark);
+      border-radius: 16px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .badge-livrable {
+      background: var(--gold);
+      color: #fff;
+      font-weight: 700;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.2rem;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    p.subtitle {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    .controls-bar {
+      display: flex;
+      gap: 15px;
+      background: var(--card-dark);
+      padding: 12px 20px;
+      border-radius: 12px;
+      border: 1px solid var(--border-dark);
+      margin-bottom: 30px;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .view-toggle {
+      display: flex;
+      background: rgba(0,0,0,0.3);
+      padding: 4px;
+      border-radius: 10px;
+      gap: 6px;
+    }
+
+    .view-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .view-btn.active {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(128, 27, 42, 0.4);
+    }
+
+    .grid-presentation {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+
+    .mockup-card {
+      background: var(--card-dark);
+      border: 1px solid var(--border-dark);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    }
+
+    .mockup-header {
+      background: rgba(0, 0, 0, 0.4);
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-dark);
+    }
+
+    .mockup-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .screen-container {
+      padding: 30px;
+      background: #090d16;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      overflow-x: auto;
+    }
+
+    /* Desktop Screen Representation */
+    .desktop-frame {
+      width: 100%;
+      max-width: 1200px;
+      background: #0f172a;
+      border-radius: 12px;
+      border: 2px solid #334155;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+      overflow: hidden;
+      font-size: 12px;
+    }
+
+    .browser-bar {
+      background: #1e293b;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid #334155;
+    }
+
+    .dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .dot { width: 10px; height: 10px; border-radius: 50%; }
+    .dot-red { background: #ef4444; }
+    .dot-yellow { background: #f59e0b; }
+    .dot-green { background: #10b981; }
+
+    .url-bar {
+      flex: 1;
+      background: #0f172a;
+      padding: 4px 12px;
+      border-radius: 6px;
+      color: #94a3b8;
+      font-family: monospace;
+      font-size: 11px;
+    }
+
+    .app-wireframe {
+      display: flex;
+      min-height: 600px;
+    }
+
+    .wf-sidebar {
+      width: 220px;
+      background: #182234;
+      border-right: 1px solid #334155;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .wf-logo {
+      font-weight: 800;
+      color: #f59e0b;
+      font-size: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid #334155;
+    }
+
+    .wf-menu-item {
+      padding: 8px 12px;
+      border-radius: 6px;
+      color: #cbd5e1;
+      background: rgba(255,255,255,0.03);
+      margin-bottom: 4px;
+    }
+
+    .wf-menu-item.active {
+      background: #801b2a;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .wf-main {
+      flex: 1;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .wf-topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1e293b;
+      padding: 12px 16px;
+      border-radius: 8px;
+    }
+
+    .wf-kpis {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .wf-kpi-card {
+      background: #1e293b;
+      border-left: 4px solid var(--gold);
+      padding: 14px;
+      border-radius: 8px;
+    }
+
+    .wf-charts {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 12px;
+    }
+
+    .wf-chart-box {
+      background: #1e293b;
+      height: 180px;
+      border-radius: 8px;
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .wf-table {
+      background: #1e293b;
+      border-radius: 8px;
+      padding: 14px;
+    }
+
+    /* Mobile Frame Representation */
+    .mobile-frame {
+      width: 360px;
+      background: #0f172a;
+      border-radius: 36px;
+      border: 10px solid #1e293b;
+      box-shadow: 0 25px 50px rgba(0,0,0,0.9);
+      overflow: hidden;
+      font-size: 11px;
+    }
+
+    .mobile-notch {
+      background: #1e293b;
+      height: 24px;
+      width: 140px;
+      margin: 0 auto 10px;
+      border-bottom-left-radius: 12px;
+      border-bottom-right-radius: 12px;
+    }
+
+    .mobile-app {
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .mobile-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #801b2a;
+      padding: 10px 12px;
+      border-radius: 10px;
+      color: #fff;
+      font-weight: 700;
+    }
+
+    .mobile-kpi-scroll {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 6px;
+    }
+
+    .mobile-kpi-pill {
+      min-width: 110px;
+      background: #1e293b;
+      padding: 8px 10px;
+      border-radius: 8px;
+      border-left: 3px solid var(--gold);
+      flex-shrink: 0;
+    }
+
+    .annotations-box {
+      padding: 24px;
+      background: rgba(15, 23, 42, 0.7);
+      border-top: 1px solid var(--border-dark);
+    }
+
+    .annotations-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .annotation-item {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid rgba(255,255,255,0.06);
+      padding: 16px;
+      border-radius: 10px;
+    }
+
+    .annotation-num {
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      background: var(--gold);
+      color: #fff;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 24px;
+      font-weight: 700;
+      font-size: 12px;
+      margin-right: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header class="doc-header">
+      <div>
+        <span class="badge-livrable">Livrable 2 : Maquettes & Ergonomie UI/UX</span>
+        <h1>Maquettes des Parcours Ordinateur et Téléphone</h1>
+        <p class="subtitle">Conception de l'expérience utilisateur du Tableau de Bord Décisionnel du CIAT - ISEP Amadou Trawaré</p>
+      </div>
+      <div>
+        <a href="../03_Application_Dashboard/index.html" style="background: var(--gold); color: #fff; padding: 12px 22px; text-decoration: none; border-radius: 8px; font-weight: 700; font-family: 'Plus Jakarta Sans', sans-serif;">Accéder à l'Application Live ➔</a>
+      </div>
+    </header>
+
+    <div class="controls-bar">
+      <div class="view-toggle">
+        <button class="view-btn active" onclick="switchView('desktop')">💻 Vue Ordinateur (Desktop HD)</button>
+        <button class="view-btn" onclick="switchView('mobile')">📱 Vue Téléphone (Mobile Responsive)</button>
+        <button class="view-btn" onclick="switchView('both')">🔄 Vue Comparative Côte à Côte</button>
+      </div>
+      <div style="color: var(--text-muted); font-size: 0.9rem;">
+        Charte ISEP Amadou Trawaré • Conformité Ergonomique Développeur &amp; Infographe
+      </div>
+    </div>
+
+    <div class="grid-presentation">
+
+      <!-- SECTION DESKTOP -->
+      <div class="mockup-card" id="card-desktop">
+        <div class="mockup-header">
+          <div class="mockup-title">
+            <span>💻 Parcours Principal sur Ordinateur (1920x1080 / 1440x900)</span>
+          </div>
+          <span style="color: #10b981; font-weight: 600; font-size: 0.85rem;">● Vue Optimisée Décideurs &amp; Data Analysts</span>
+        </div>
+        <div class="screen-container">
+          <div class="desktop-frame">
+            <div class="browser-bar">
+              <div class="dots">
+                <div class="dot dot-red"></div>
+                <div class="dot dot-yellow"></div>
+                <div class="dot dot-green"></div>
+              </div>
+              <div class="url-bar">https://ciat.isep.sn/dashboard/decisionnel-v1</div>
+            </div>
+            <div class="app-wireframe">
+              <!-- Sidebar -->
+              <div class="wf-sidebar">
+                <div class="wf-logo">
+                  🏛️ CIAT DÉCISIONNEL
+                  <div style="font-size: 10px; color: #94a3b8; font-weight: normal;">ISEP Amadou Trawaré</div>
+                </div>
+                <div class="wf-menu-item active">📊 Tableau de Bord</div>
+                <div class="wf-menu-item">📁 Projets &amp; Cohortes</div>
+                <div class="wf-menu-item">⏳ Suivi des Retards</div>
+                <div class="wf-menu-item">🤖 Assistant IA CIAT</div>
+                <div class="wf-menu-item">📑 Exports &amp; Rapports</div>
+                <div class="wf-menu-item" style="margin-top: auto; border-top: 1px solid #334155;">⚙️ Rôle : Directeur ISEP</div>
+              </div>
+
+              <!-- Main Content Area -->
+              <div class="wf-main">
+                <div class="wf-topbar">
+                  <div>
+                    <strong>Vue de Pilotage Stratégique des Innovations</strong>
+                    <div style="color: #94a3b8; font-size: 11px;">Filtres actifs : Toutes les cohortes | 7 Domaines CIAT</div>
+                  </div>
+                  <div style="display: flex; gap: 8px;">
+                    <span style="background: #334155; padding: 4px 8px; border-radius: 4px;">Filtre Période</span>
+                    <span style="background: #334155; padding: 4px 8px; border-radius: 4px;">Filtre Statut</span>
+                    <span style="background: #801b2a; color: #fff; padding: 4px 10px; border-radius: 4px; font-weight: bold;">+ Nouveau Projet</span>
+                  </div>
+                </div>
+
+                <div class="wf-kpis">
+                  <div class="wf-kpi-card">
+                    <div style="color: #94a3b8;">Idées Reçues</div>
+                    <div style="font-size: 20px; font-weight: 800; color: #fff;">260</div>
+                    <div style="color: #10b981; font-size: 10px;">↑ +18% vs 2024</div>
+                  </div>
+                  <div class="wf-kpi-card" style="border-left-color: #3b82f6;">
+                    <div style="color: #94a3b8;">Projets Sélectionnés</div>
+                    <div style="font-size: 20px; font-weight: 800; color: #fff;">64</div>
+                    <div style="color: #3b82f6; font-size: 10px;">Taux sélec. 24.6%</div>
+                  </div>
+                  <div class="wf-kpi-card" style="border-left-color: #10b981;">
+                    <div style="color: #94a3b8;">Prototypes Validés</div>
+                    <div style="font-size: 20px; font-weight: 800; color: #fff;">39</div>
+                    <div style="color: #10b981; font-size: 10px;">60.9% de concrétisation</div>
+                  </div>
+                  <div class="wf-kpi-card" style="border-left-color: #ec4899;">
+                    <div style="color: #94a3b8;">Parité Genre (F)</div>
+                    <div style="font-size: 20px; font-weight: 800; color: #fff;">42.2%</div>
+                    <div style="color: #ec4899; font-size: 10px;">Objectif CIAT atteint</div>
+                  </div>
+                </div>
+
+                <div class="wf-charts">
+                  <div class="wf-chart-box">
+                    <strong>Répartition des Projets par Domaine Prioritaire du CIAT</strong>
+                    <div style="display: flex; align-items: flex-end; gap: 15px; height: 110px; padding: 10px 0;">
+                      <div style="flex:1; background:#2563eb; height:85%; border-radius:3px 3px 0 0;"></div>
+                      <div style="flex:1; background:#d97706; height:60%; border-radius:3px 3px 0 0;"></div>
+                      <div style="flex:1; background:#16a34a; height:75%; border-radius:3px 3px 0 0;"></div>
+                      <div style="flex:1; background:#0284c7; height:50%; border-radius:3px 3px 0 0;"></div>
+                      <div style="flex:1; background:#9333ea; height:40%; border-radius:3px 3px 0 0;"></div>
+                      <div style="flex:1; background:#ea580c; height:35%; border-radius:3px 3px 0 0;"></div>
+                      <div style="flex:1; background:#be123c; height:35%; border-radius:3px 3px 0 0;"></div>
+                    </div>
+                  </div>
+                  <div class="wf-chart-box">
+                    <strong>État d'Avancement &amp; Risque</strong>
+                    <div style="margin: auto; width: 100px; height: 100px; border-radius: 50%; border: 12px solid #10b981; border-top-color: #ef4444; border-right-color: #f59e0b;"></div>
+                    <div style="text-align: center; color: #94a3b8; font-size: 10px;">64% Dans les délais | 23% Retard modéré | 13% Critique</div>
+                  </div>
+                </div>
+
+                <div class="wf-table">
+                  <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                    <strong>Tableau de Suivi Opérationnel des Projets (Extrait)</strong>
+                    <input type="text" placeholder="Recherche rapide..." style="background: #0f172a; border: 1px solid #334155; padding: 3px 8px; border-radius: 4px; color: #fff; font-size: 10px;" />
+                  </div>
+                  <div style="color: #cbd5e1; font-size: 11px;">
+                    <div style="display: flex; background: #0f172a; padding: 6px; font-weight: bold; border-radius: 4px;">
+                      <span style="flex: 1.5;">Code / Titre</span>
+                      <span style="flex: 1;">Domaine</span>
+                      <span style="flex: 1;">Cohorte</span>
+                      <span style="flex: 1;">Porteur</span>
+                      <span style="flex: 1;">Statut Retard</span>
+                      <span style="flex: 1;">Financement</span>
+                    </div>
+                    <div style="display: flex; padding: 6px; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                      <span style="flex: 1.5;">CIAT-TIC-033 DeepWeed-Rover</span>
+                      <span style="flex: 1;">TIC &amp; IA</span>
+                      <span style="flex: 1;">2025</span>
+                      <span style="flex: 1;">S. M. Diop (M)</span>
+                      <span style="flex: 1; color: #10b981;">● Dans les délais</span>
+                      <span style="flex: 1;">7 000 000 FCFA</span>
+                    </div>
+                    <div style="display: flex; padding: 6px; border-bottom: 1px solid rgba(255,255,255,0.05);">
+                      <span style="flex: 1.5;">CIAT-MECA-034 Prothèse Myo-3D</span>
+                      <span style="flex: 1;">Mécanique</span>
+                      <span style="flex: 1;">2025</span>
+                      <span style="flex: 1;">Awa Ndiaye (F)</span>
+                      <span style="flex: 1; color: #10b981;">● Dans les délais</span>
+                      <span style="flex: 1;">6 500 000 FCFA</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="annotations-box">
+          <h4 style="margin-bottom: 15px; color: var(--gold);">Annotations Ergonomie Desktop :</h4>
+          <div class="annotations-grid">
+            <div class="annotation-item">
+              <span class="annotation-num">1</span>
+              <strong>Navigation Latérale Unifiée :</strong> Accès immédiat aux 5 modules principaux et commutateur instantané de rôle utilisateur (Directeur, Coordonnateur, Analyste).
+            </div>
+            <div class="annotation-item">
+              <span class="annotation-num">2</span>
+              <strong>Barre de Filtres Synchronisés :</strong> Tout changement de cohorte ou de domaine met à jour l'ensemble des KPIs, des graphiques et du tableau en moins de 50 ms.
+            </div>
+            <div class="annotation-item">
+              <span class="annotation-num">3</span>
+              <strong>Assistant IA Intégré en Split-View :</strong> Possibilité d'ouvrir le volet conversationnel IA à côté des graphiques pour un guidage décisionnel sans quitter l'écran.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SECTION MOBILE -->
+      <div class="mockup-card" id="card-mobile">
+        <div class="mockup-header">
+          <div class="mockup-title">
+            <span>📱 Parcours Principal sur Téléphone (375x812 / iOS &amp; Android)</span>
+          </div>
+          <span style="color: #f59e0b; font-weight: 600; font-size: 0.85rem;">● Vue Nomade Coordinateur &amp; Décideurs</span>
+        </div>
+        <div class="screen-container">
+          <div class="mobile-frame">
+            <div class="mobile-notch"></div>
+            <div class="mobile-app">
+              <div class="mobile-header">
+                <div>CIAT DÉCISIONNEL</div>
+                <div style="font-size: 14px;">☰</div>
+              </div>
+
+              <div style="font-size: 10px; color: #94a3b8;">
+                Promotion 2024-2025 • Vue Synthèse
+              </div>
+
+              <div class="mobile-kpi-scroll">
+                <div class="mobile-kpi-pill">
+                  <div style="color: #94a3b8;">Projets</div>
+                  <div style="font-size: 16px; font-weight: 800; color: #fff;">64</div>
+                </div>
+                <div class="mobile-kpi-pill" style="border-left-color: #3b82f6;">
+                  <div style="color: #94a3b8;">Prototypes</div>
+                  <div style="font-size: 16px; font-weight: 800; color: #fff;">39</div>
+                </div>
+                <div class="mobile-kpi-pill" style="border-left-color: #ec4899;">
+                  <div style="color: #94a3b8;">Parité (F)</div>
+                  <div style="font-size: 16px; font-weight: 800; color: #fff;">42.2%</div>
+                </div>
+                <div class="mobile-kpi-pill" style="border-left-color: #ef4444;">
+                  <div style="color: #94a3b8;">En Retard</div>
+                  <div style="font-size: 16px; font-weight: 800; color: #ef4444;">8</div>
+                </div>
+              </div>
+
+              <!-- Quick Action IA -->
+              <div style="background: linear-gradient(135deg, #0284c7, #801b2a); padding: 10px; border-radius: 8px; color: #fff;">
+                <div style="font-weight: bold; font-size: 11px;">🤖 Poser une question à l'IA</div>
+                <div style="font-size: 10px; opacity: 0.9;">"Quels sont les projets en retard ?"</div>
+              </div>
+
+              <!-- Mini Chart Preview -->
+              <div style="background: #1e293b; padding: 10px; border-radius: 8px;">
+                <div style="font-weight: bold; margin-bottom: 6px;">Top Domaines d'Innovation</div>
+                <div style="display: flex; flex-direction: column; gap: 4px;">
+                  <div>
+                    <span style="display: flex; justify-content: space-between; font-size: 9px;">TIC &amp; IA <span>14 prj</span></span>
+                    <div style="height: 6px; background: #2563eb; width: 90%; border-radius: 3px;"></div>
+                  </div>
+                  <div>
+                    <span style="display: flex; justify-content: space-between; font-size: 9px;">Agri &amp; Agro-Indus <span>12 prj</span></span>
+                    <div style="height: 6px; background: #16a34a; width: 75%; border-radius: 3px;"></div>
+                  </div>
+                  <div>
+                    <span style="display: flex; justify-content: space-between; font-size: 9px;">Énergies Renouvelables <span>10 prj</span></span>
+                    <div style="height: 6px; background: #0284c7; width: 60%; border-radius: 3px;"></div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Project List Mobile -->
+              <div style="background: #1e293b; padding: 10px; border-radius: 8px;">
+                <div style="font-weight: bold; margin-bottom: 6px;">Derniers Projets Suivis</div>
+                <div style="background: #0f172a; padding: 8px; border-radius: 6px; margin-bottom: 6px;">
+                  <div style="font-weight: 700; color: #f59e0b;">DeepWeed-Rover</div>
+                  <div style="font-size: 10px; color: #94a3b8;">Porteur : S. M. Diop • TIC &amp; IA</div>
+                  <span style="background: rgba(16, 185, 129, 0.2); color: #10b981; padding: 2px 6px; border-radius: 4px; font-size: 9px; display: inline-block; margin-top: 4px;">Dans les délais</span>
+                </div>
+                <div style="background: #0f172a; padding: 8px; border-radius: 6px;">
+                  <div style="font-weight: 700; color: #ef4444;">MicroRéseau-DC-École</div>
+                  <div style="font-size: 10px; color: #94a3b8;">Porteur : Pathé Cissé • Énergie</div>
+                  <span style="background: rgba(239, 68, 68, 0.2); color: #ef4444; padding: 2px 6px; border-radius: 4px; font-size: 9px; display: inline-block; margin-top: 4px;">Retard critique (22j)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="annotations-box">
+          <h4 style="margin-bottom: 15px; color: var(--gold);">Annotations Ergonomie Mobile :</h4>
+          <div class="annotations-grid">
+            <div class="annotation-item">
+              <span class="annotation-num">1</span>
+              <strong>Carrousel Horizontal Tactile :</strong> Consultation instantanée par glissement du doigt (*swipe*) des indicateurs clés sans surcharger la hauteur de l'écran.
+            </div>
+            <div class="annotation-item">
+              <span class="annotation-num">2</span>
+              <strong>Cartes Projets Empilables :</strong> Remplacement du tableau horizontal large par des cartes unitaires adaptées aux pouces et à la consultation en déplacement.
+            </div>
+            <div class="annotation-item">
+              <span class="annotation-num">3</span>
+              <strong>Bouton IA Direct :</strong> Déclenchement vocal ou textuel rapide d'une requête analytique lors des réunions d'encadrement sur le terrain.
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    function switchView(mode) {
+      const cardDesk = document.getElementById('card-desktop');
+      const cardMob = document.getElementById('card-mobile');
+      const btns = document.querySelectorAll('.view-btn');
+      
+      btns.forEach(b => b.classList.remove('active'));
+
+      if (mode === 'desktop') {
+        cardDesk.style.display = 'block';
+        cardMob.style.display = 'none';
+        btns[0].classList.add('active');
+      } else if (mode === 'mobile') {
+        cardDesk.style.display = 'none';
+        cardMob.style.display = 'block';
+        btns[1].classList.add('active');
+      } else {
+        cardDesk.style.display = 'block';
+        cardMob.style.display = 'block';
+        btns[2].classList.add('active');
+      }
+    }
+  </script>
+</body>
+</html>

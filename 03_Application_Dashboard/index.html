@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CIAT Décisionnel | Tableau de Bord & IA - ISEP Amadou Trawaré de Diamniadio</title>
+  <meta name="description" content="Plateforme analytique et tableau de bord décisionnel intelligent du Centre d'Innovation, d'Application et de Transfert (CIAT) de l'ISEP Amadou Trawaré.">
+  
+  <!-- Polices Google Fonts recommandées -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="app-layout">
+    
+    <!-- 1. BARRE LATÉRALE DE NAVIGATION -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <div class="brand-badge">AT</div>
+        <div class="brand-info">
+          <h2>CIAT <span class="brand-tag">DÉCISIONNEL</span></h2>
+          <p>ISEP Amadou Trawaré • Diamniadio</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">Pilotage &amp; Données</div>
+        <a class="nav-item active" data-target="dashboard">
+          <span class="icon">📊</span>
+          <span>Tableau de Bord</span>
+        </a>
+        <a class="nav-item" data-target="retards">
+          <span class="icon">⏳</span>
+          <span>Suivi des Retards</span>
+          <span class="nav-badge-alert" id="sidebar-retards-badge">8</span>
+        </a>
+        <a class="nav-item" data-target="assistant">
+          <span class="icon">🤖</span>
+          <span>Assistant IA CIAT</span>
+        </a>
+
+        <div class="nav-section-title">Outils &amp; Exports</div>
+        <a class="nav-item" onclick="CIAT_EXPORT.exportToCSV()">
+          <span class="icon">📑</span>
+          <span>Exporter en Excel / CSV</span>
+        </a>
+        <a class="nav-item" onclick="CIAT_EXPORT.exportToPDF()">
+          <span class="icon">🖨️</span>
+          <span>Rapport Synthèse (PDF)</span>
+        </a>
+        <a class="nav-item" href="../02_Maquettes_et_Design/Maquettes_Desktop_Mobile.html" target="_blank">
+          <span class="icon">📱</span>
+          <span>Voir les Maquettes UX</span>
+        </a>
+        <a class="nav-item" href="../02_Maquettes_et_Design/affiche_lancement.html" target="_blank">
+          <span class="icon">🎨</span>
+          <span>Affiche de Lancement</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="role-switcher-box">
+          <div class="role-switcher-label">
+            <span>Profil Actif :</span>
+            <span style="color: var(--gold);">● En ligne</span>
+          </div>
+          <select id="role-select" class="role-select">
+            <option value="Directeur ISEP / Gouvernance CIAT">Directeur ISEP / CIAT</option>
+            <option value="Coordonnateur Incubateur">Coordonnateur Incubateur</option>
+            <option value="Data Analyst / Suivi-Evaluation">Data Analyst / Évaluation</option>
+            <option value="Membre du Jury / Évaluateur">Membre du Jury (Invité)</option>
+          </select>
+        </div>
+      </div>
+    </aside>
+
+    <!-- 2. ZONE PRINCIPALE -->
+    <div class="main-wrapper">
+      
+      <!-- Barre Supérieure (Topbar) -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="btn-sidebar-toggle" id="btn-sidebar-toggle" title="Menu">☰</button>
+          <div class="topbar-title">
+            <h1>Tableau de Bord Décisionnel du CIAT</h1>
+            <p>Supervision des Cohortes d'Incubation &amp; Valorisation des Prototypes</p>
+          </div>
+        </div>
+
+        <div class="topbar-right">
+          <button class="btn-icon-top" id="btn-theme-toggle" title="Basculer Thème Sombre / Clair">🌓</button>
+          <button class="btn-action-primary" id="btn-new-project">
+            <span>+</span> Nouveau Projet
+          </button>
+        </div>
+      </header>
+
+      <!-- 3. BARRE DE FILTRES MULTICRITÈRES SYNCHRONISÉS -->
+      <section class="filters-strip">
+        <div class="filter-group">
+          <label for="filter-cohorte">Cohorte :</label>
+          <select id="filter-cohorte" class="filter-control">
+            <option value="">Toutes les cohortes</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="filter-domaine">Filière / Domaine :</label>
+          <select id="filter-domaine" class="filter-control">
+            <option value="">Tous les domaines (7)</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="filter-statut">Statut d'Avancement :</label>
+          <select id="filter-statut" class="filter-control">
+            <option value="">Tous les statuts</option>
+            <option value="Idée">Idée</option>
+            <option value="Sélectionné">Sélectionné</option>
+            <option value="Prototypage">Prototypage</option>
+            <option value="Incubation">Incubation</option>
+            <option value="Accélération / Transfert">Accélération / Transfert</option>
+            <option value="Terminé">Terminé</option>
+            <option value="En retard">⚠️ Projets en retard</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="filter-genre">Genre Porteur :</label>
+          <select id="filter-genre" class="filter-control">
+            <option value="">Tous les genres</option>
+            <option value="Féminin">Féminin (Porteuses)</option>
+            <option value="Masculin">Masculin</option>
+          </select>
+        </div>
+
+        <div class="search-input-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="filter-search" placeholder="Rechercher un projet, porteur, mot-clé, partenaire..." />
+        </div>
+
+        <button class="btn-reset-filters" id="btn-reset-filters">↺ Réinitialiser</button>
+      </section>
+
+      <!-- 4. CORPS DU TABLEAU DE BORD -->
+      <main class="dashboard-content">
+
+        <!-- GRILLE DES INDICATEURS CLÉS (KPI CARDS) -->
+        <section class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-top">
+              <span class="kpi-label">Idées Reçues (Candidatures)</span>
+              <div class="kpi-icon-circ">💡</div>
+            </div>
+            <div class="kpi-value" id="kpi-idees-recues">260</div>
+            <div class="kpi-trend trend-up">
+              <span>↑ +18%</span> par rapport à l'exercice précédent
+            </div>
+          </div>
+
+          <div class="kpi-card kpi-blue">
+            <div class="kpi-top">
+              <span class="kpi-label">Projets Sélectionnés</span>
+              <div class="kpi-icon-circ" style="color: var(--tech-blue);">🎯</div>
+            </div>
+            <div class="kpi-value" id="kpi-total-projets">64</div>
+            <div class="kpi-trend trend-up">
+              <span>24.6%</span> de taux d'admission au CIAT
+            </div>
+          </div>
+
+          <div class="kpi-card kpi-green">
+            <div class="kpi-top">
+              <span class="kpi-label">Prototypes Conçus &amp; Testés</span>
+              <div class="kpi-icon-circ" style="color: var(--success);">⚙️</div>
+            </div>
+            <div class="kpi-value" id="kpi-prototypes">39 (61%)</div>
+            <div class="kpi-trend trend-up">
+              <span>✓ Validés</span> par le FabLab et les ateliers
+            </div>
+          </div>
+
+          <div class="kpi-card kpi-purple">
+            <div class="kpi-top">
+              <span class="kpi-label">Financements Décaissés</span>
+              <div class="kpi-icon-circ" style="color: var(--purple);">💰</div>
+            </div>
+            <div class="kpi-value" id="kpi-budget-total">130.0 M</div>
+            <div class="kpi-trend" style="color: var(--gold-light);">
+              <span>Francs CFA</span> mobilisés (CIAT &amp; Partenaires)
+            </div>
+          </div>
+
+          <div class="kpi-card" style="border-left: 4px solid #ec4899;">
+            <div class="kpi-top">
+              <span class="kpi-label">Mixité &amp; Parité F</span>
+              <div class="kpi-icon-circ" style="color: #ec4899;">👩‍💼</div>
+            </div>
+            <div class="kpi-value" id="kpi-parite-genre" style="color: #ec4899;">42.2%</div>
+            <div class="kpi-trend trend-up">
+              <span>✓ Cible ISEP (>40%)</span> atteinte avec succès
+            </div>
+          </div>
+
+          <div class="kpi-card kpi-red">
+            <div class="kpi-top">
+              <span class="kpi-label">Alertes Retards Jalons</span>
+              <div class="kpi-icon-circ" style="color: var(--danger);">⚠️</div>
+            </div>
+            <div class="kpi-value" id="kpi-retards-alert" style="color: var(--danger);">8</div>
+            <div class="kpi-trend trend-down">
+              <span>Dépassement</span> requérant l'appui des mentors
+            </div>
+          </div>
+        </section>
+
+        <!-- 5. MODULE ASSISTANT DÉCISIONNEL IA DU CIAT -->
+        <section class="ai-assistant-panel" id="section-ai">
+          <div class="ai-header">
+            <div class="ai-title">
+              <span>🤖</span>
+              <span>Assistant Décisionnel Intelligent du CIAT</span>
+              <span class="ai-badge">IA Générative Intégrée</span>
+            </div>
+            <div style="font-size: 0.8rem; color: #94a3b8;">
+              Ancré sur les 64 projets du CIAT • Zéro Hallucination
+            </div>
+          </div>
+
+          <!-- Requêtes rapides en un clic -->
+          <div class="ai-canned-queries">
+            <button class="canned-btn" onclick="CIAT_AI_ASSISTANT.askCanned('Quels sont les projets en retard critique et les actions recommandées ?')">
+              ⏳ Projets en retard critique ?
+            </button>
+            <button class="canned-btn" onclick="CIAT_AI_ASSISTANT.askCanned('Génère une synthèse exécutive complète pour le Directeur de l ISEP.')">
+              📑 Synthèse exécutive Direction
+            </button>
+            <button class="canned-btn" onclick="CIAT_AI_ASSISTANT.askCanned('Quel est le bilan de la parité de genre et les réussites féminines ?')">
+              👩‍💼 Bilan Parité Féminine
+            </button>
+            <button class="canned-btn" onclick="CIAT_AI_ASSISTANT.askCanned('Quels sont les projets ayant mobilisé le plus de financements ?')">
+              💰 Top financements mobilisés
+            </button>
+            <button class="canned-btn" onclick="CIAT_AI_ASSISTANT.askCanned('Quelles sont les recommandations stratégiques pour le CIAT ?')">
+              💡 Recommandations stratégiques
+            </button>
+          </div>
+
+          <!-- Barre de saisie libre en langage naturel -->
+          <div class="ai-input-row">
+            <input type="text" id="ai-query-input" class="ai-input" placeholder="Posez une question en langage naturel (ex: Quels prototypes sont prêts au transfert ?)" />
+            <button id="btn-ai-submit" class="btn-ai-submit">
+              <span>Interroger l'IA</span>
+              <span>➔</span>
+            </button>
+          </div>
+
+          <!-- Zone de réponse dynamique -->
+          <div class="ai-response-box" id="ai-response-box">
+            <div id="ai-response-content"></div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 8px;">
+              <span class="ai-source-tag" id="ai-response-source">Source : Données validées CIAT</span>
+              <button class="chart-btn" onclick="CIAT_EXPORT.copyAIReport()">📋 Copier la synthèse</button>
+            </div>
+          </div>
+        </section>
+
+        <!-- 6. GRAPHIQUES ET ANALYSES COMPARATIVES -->
+        <div class="charts-grid-two">
+          <!-- Graphique 1 : Projets par Domaine -->
+          <div class="chart-card">
+            <div class="chart-card-header">
+              <div class="chart-card-title">
+                <span>📊</span> Répartition des Projets par Filière Prioritaire du CIAT
+              </div>
+              <div class="chart-actions">
+                <span style="font-size: 0.75rem; color: var(--text-secondary);">Cliquez sur une barre pour filtrer</span>
+              </div>
+            </div>
+            <div class="chart-body" id="chart-domains-bar"></div>
+          </div>
+
+          <!-- Graphique 2 : Donut Parité Genre -->
+          <div class="chart-card">
+            <div class="chart-card-header">
+              <div class="chart-card-title">
+                <span>⚖️</span> Parité de Genre des Porteurs
+              </div>
+              <span style="font-size: 0.75rem; color: var(--gold-light);">Objectif CIAT : 40%</span>
+            </div>
+            <div class="chart-body" id="chart-gender-donut"></div>
+          </div>
+        </div>
+
+        <div class="charts-grid-balanced">
+          <!-- Graphique 3 : Funnel de l'Incubateur -->
+          <div class="chart-card">
+            <div class="chart-card-header">
+              <div class="chart-card-title">
+                <span>🔄</span> Pipeline de Conversion de l'Incubateur
+              </div>
+              <span style="font-size: 0.75rem; color: var(--text-secondary);">De l'idée au transfert</span>
+            </div>
+            <div class="chart-body" id="chart-funnel"></div>
+          </div>
+
+          <!-- Graphique 4 : Comparatif des Cohortes -->
+          <div class="chart-card">
+            <div class="chart-card-header">
+              <div class="chart-card-title">
+                <span>📈</span> Comparatif Inter-Cohortes (2023 - 2026)
+              </div>
+              <span style="font-size: 0.75rem; color: var(--text-secondary);">4 promotions analysées</span>
+            </div>
+            <div class="chart-body" id="chart-cohort-comparison"></div>
+          </div>
+        </div>
+
+        <!-- 7. TABLEAU DÉCISIONNEL ET OPÉRATIONNEL DES PROJETS -->
+        <section class="table-card">
+          <div class="table-header-row">
+            <div>
+              <h2 style="font-size: 1.15rem; font-family: 'Plus Jakarta Sans'; font-weight: 800;">
+                Portefeuille Opérationnel des Projets du CIAT
+              </h2>
+              <p style="font-size: 0.78rem; color: var(--text-secondary);" id="table-info">
+                Chargement des projets...
+              </p>
+            </div>
+            <div style="display: flex; gap: 8px;">
+              <button class="chart-btn" onclick="CIAT_EXPORT.exportToCSV()">📥 Exporter les données affichées (CSV)</button>
+            </div>
+          </div>
+
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Code &amp; Titre</th>
+                  <th>Domaine Stratégique</th>
+                  <th>Cohorte</th>
+                  <th>Porteur Principal</th>
+                  <th>Statut de Retard</th>
+                  <th>Financement</th>
+                  <th style="text-align: right;">Action</th>
+                </tr>
+              </thead>
+              <tbody id="projects-table-body">
+                <!-- Généré dynamiquement par app.js -->
+              </tbody>
+            </table>
+          </div>
+
+          <div class="table-pagination">
+            <div style="font-size: 0.8rem; color: var(--text-muted);">
+              Navigation paginée • Synchronisation dynamique avec filtres
+            </div>
+            <div class="page-controls" id="table-page-controls"></div>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- MODAL DE CRÉATION D'UN PROJET (CRUD) -->
+  <div class="modal-overlay" id="project-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title">Enregistrer un Nouveau Projet au CIAT</h3>
+        <button class="modal-close" id="btn-close-modal">&times;</button>
+      </div>
+      <form id="form-new-project">
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="modal-titre">Intitulé du Projet / Solution Innovante *</label>
+            <input type="text" id="modal-titre" class="form-input" required placeholder="Ex: Déshydrateur Solaire Connecté" />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="modal-porteur">Nom &amp; Prénom du Porteur *</label>
+              <input type="text" id="modal-porteur" class="form-input" required placeholder="Ex: Khadidiatou Ndiaye" />
+            </div>
+            <div class="form-group">
+              <label for="modal-genre">Genre du Porteur *</label>
+              <select id="modal-genre" class="form-select" required>
+                <option value="Féminin">Féminin</option>
+                <option value="Masculin">Masculin</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="modal-domaine">Filière / Domaine Prioritaire *</label>
+              <select id="modal-domaine" class="form-select" required></select>
+            </div>
+            <div class="form-group">
+              <label for="modal-cohorte">Cohorte d'Incubation *</label>
+              <select id="modal-cohorte" class="form-select" required></select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="modal-stade">Stade d'Avancement *</label>
+              <select id="modal-stade" class="form-select" required>
+                <option value="Idée">Idée</option>
+                <option value="Sélectionné">Sélectionné</option>
+                <option value="Prototypage" selected>Prototypage</option>
+                <option value="Incubation">Incubation</option>
+                <option value="Accélération / Transfert">Accélération / Transfert</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="modal-retard">Statut de Suivi Calendaire *</label>
+              <select id="modal-retard" class="form-select" required>
+                <option value="Dans les délais" selected>Dans les délais</option>
+                <option value="Retard modéré">Retard modéré (1-20j)</option>
+                <option value="Retard critique">Retard critique (>20j)</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="modal-budget">Montant Financement Estimé / Obtenu (FCFA)</label>
+            <input type="number" id="modal-budget" class="form-input" value="3500000" step="100000" />
+          </div>
+
+          <div class="form-group">
+            <label for="modal-desc">Résumé du Problème &amp; Solution Technologique</label>
+            <textarea id="modal-desc" class="form-textarea" rows="3" placeholder="Description de l'innovation et de son apport au Sénégal..."></textarea>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn-reset-filters" style="margin-top:0;" onclick="App.closeModal()">Annuler</button>
+          <button type="submit" class="btn-action-primary">Enregistrer le Projet</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Conteneur Toast Notifications -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Scripts Javascript de l'application -->
+  <script src="data.js"></script>
+  <script src="charts.js"></script>
+  <script src="ai_assistant.js"></script>
+  <script src="export.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

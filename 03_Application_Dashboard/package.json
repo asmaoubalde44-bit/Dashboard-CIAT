@@ -1,0 +1,20 @@
+{
+  "name": "ciat-decision-dashboard",
+  "version": "1.0.0",
+  "description": "Tableau de Bord Décisionnel Intelligent du CIAT - ISEP Amadou Trawaré de Diamniadio",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "ciat",
+    "isep-diamniadio",
+    "dashboard",
+    "business-intelligence",
+    "ia-generative",
+    "senegal"
+  ],
+  "author": "Équipe CIAT Innovation - ISEP Diamniadio",
+  "license": "MIT"
+}

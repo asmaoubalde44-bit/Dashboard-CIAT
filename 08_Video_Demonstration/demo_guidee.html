@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visite Guidée Interactive | Tableau de Bord Décisionnel CIAT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Outfit:wght@700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #090e17;
+      color: #f8fafc;
+      padding: 30px 20px;
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .header-box {
+      background: linear-gradient(135deg, rgba(128, 27, 42, 0.9), rgba(15, 23, 42, 0.95));
+      border: 1px solid rgba(217, 119, 6, 0.4);
+      border-radius: 16px;
+      padding: 30px;
+      margin-bottom: 30px;
+      text-align: center;
+    }
+    .tag {
+      background: #d97706;
+      color: #fff;
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+    .step-card {
+      background: #1e293b;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 22px;
+      margin-bottom: 20px;
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      transition: all 0.25s ease;
+    }
+    .step-card:hover {
+      border-color: #d97706;
+      transform: translateX(6px);
+    }
+    .step-num {
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #801b2a, #d97706);
+      color: #fff;
+      font-weight: 900;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .step-content h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.15rem;
+      color: #f59e0b;
+      margin-bottom: 6px;
+    }
+    .step-content p {
+      color: #cbd5e1;
+      font-size: 0.92rem;
+      margin-bottom: 10px;
+    }
+    .btn-action {
+      background: #0284c7;
+      color: #fff;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+    }
+    .btn-action:hover {
+      background: #0369a1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="header-box">
+      <span class="tag">Livrable 9 : Démonstration Interactive</span>
+      <h1>Visite Guidée des Fonctionnalités du CIAT</h1>
+      <p style="color: #cbd5e1; font-size: 1rem;">
+        Guide pas à pas pour apprécier les 10 fonctionnalités clés du Tableau de Bord Décisionnel
+      </p>
+      <div style="margin-top: 20px;">
+        <a href="http://localhost:3000/" target="_blank" style="background: #d97706; color: #fff; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: 800; font-family: 'Plus Jakarta Sans';">
+          🚀 Ouvrir l'Application Live (http://localhost:3000/) ➔
+        </a>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <h3>Indicateurs Clés de Performance (KPIs)</h3>
+        <p>Les 6 cartes au sommet de l'écran affichent les totaux consolidés : idées soumises, projets retenus, prototypes réalisés, financements débloqués, parité féminine et retards critiques.</p>
+        <a href="http://localhost:3000/" target="_blank" class="btn-action">Voir les KPIs en direct ➔</a>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <h3>Filtres Multicritères Synchronisés</h3>
+        <p>Filtrez instantanément par promotion (2023 à 2026), par filière prioritaire de l'ISEP, par niveau d'avancement ou par genre de porteur. Toute l'interface se recalcule en direct.</p>
+        <a href="http://localhost:3000/" target="_blank" class="btn-action">Tester les filtres ➔</a>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <h3>Assistant Décisionnel IA (NLP &amp; RAG)</h3>
+        <p>Interrogez l'intelligence artificielle en langage naturel ou cliquez sur les requêtes préconfigurées pour obtenir un diagnostic sur les retards ou une synthèse pour le Directeur de l'ISEP.</p>
+        <a href="http://localhost:3000/#section-ai" target="_blank" class="btn-action">Interroger l'Assistant IA ➔</a>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <h3>Visualisations Interactives &amp; Graphiques Vectoriels</h3>
+        <p>Explorez la répartition par domaine, le donut de parité de genre, le funnel de conversion de l'incubateur et la comparaison entre promotions sans aucune latence.</p>
+        <a href="http://localhost:3000/" target="_blank" class="btn-action">Explorer les graphiques ➔</a>
+      </div>
+    </div>
+
+    <div class="step-card">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <h3>Gestion des Projets (CRUD) &amp; Exports Multi-Formats</h3>
+        <p>Ajoutez un nouveau projet via le bouton dédié avec sauvegarde locale, puis exportez la sélection en fichier CSV ouvrable dans Excel ou imprimez le rapport officiel PDF.</p>
+        <a href="http://localhost:3000/" target="_blank" class="btn-action">Tester l'export et l'ajout ➔</a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

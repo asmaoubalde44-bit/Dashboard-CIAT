@@ -1,0 +1,7 @@
+[build]
+  publish = "03_Application_Dashboard"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
