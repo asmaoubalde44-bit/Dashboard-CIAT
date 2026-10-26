@@ -14,7 +14,7 @@ echo [2/3] Demarrage du serveur HTTP local sur le port 3000...
 start /b node server.js
 
 echo [3/3] Ouverture de l'application dans votre navigateur par defaut...
-timeout /t 2 /nobreak >nul
+ping 127.0.0.1 -n 2 >nul
 start http://localhost:3000/
 
 echo.

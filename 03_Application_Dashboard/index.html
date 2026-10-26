@@ -11,6 +11,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Outfit:wght@700;800;900&display=swap" rel="stylesheet">
   
+  <!-- Suppression forcée de l'icône dans l'onglet du navigateur -->
+  <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=">
+  <link rel="shortcut icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=">
+  
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -20,7 +24,6 @@
     <!-- 1. BARRE LATÉRALE DE NAVIGATION -->
     <aside class="sidebar" id="sidebar">
       <div class="sidebar-header">
-        <div class="brand-badge">AT</div>
         <div class="brand-info">
           <h2>CIAT <span class="brand-tag">DÉCISIONNEL</span></h2>
           <p>ISEP Amadou Trawaré • Diamniadio</p>
@@ -52,11 +55,11 @@
           <span class="icon">🖨️</span>
           <span>Rapport Synthèse (PDF)</span>
         </a>
-        <a class="nav-item" href="../02_Maquettes_et_Design/Maquettes_Desktop_Mobile.html" target="_blank">
+        <a class="nav-item" href="02_Maquettes_et_Design/Maquettes_Desktop_Mobile.html" target="_blank">
           <span class="icon">📱</span>
           <span>Voir les Maquettes UX</span>
         </a>
-        <a class="nav-item" href="../02_Maquettes_et_Design/affiche_lancement.html" target="_blank">
+        <a class="nav-item" href="02_Maquettes_et_Design/affiche_lancement.html" target="_blank">
           <span class="icon">🎨</span>
           <span>Affiche de Lancement</span>
         </a>
@@ -218,54 +221,63 @@
           </div>
         </section>
 
-        <!-- 5. MODULE ASSISTANT DÉCISIONNEL IA DU CIAT -->
+        <!-- 5. MODULE ASSISTANT DÉCISIONNEL IA DU CIAT (EXPÉRIENCE TYPE CHATGPT) -->
         <section class="ai-assistant-panel" id="section-ai">
           <div class="ai-header">
             <div class="ai-title">
-              <span>🤖</span>
-              <span>Assistant Décisionnel Intelligent du CIAT</span>
-              <span class="ai-badge">IA Générative Intégrée</span>
+              <div class="ai-robot-avatar">🤖</div>
+              <div>
+                <div style="display:flex; align-items:center; gap:8px;">
+                  <span>Assistant IA CIAT</span>
+                  <span class="ai-badge">Mode ChatGPT</span>
+                  <span class="ai-status-dot">● En ligne</span>
+                </div>
+                <div style="font-size: 0.78rem; color: #94a3b8; font-weight: normal; margin-top: 2px;">
+                  Conversation fluide • Ancrage sur les 64 projets du CIAT • Conseils &amp; Décision
+                </div>
+              </div>
             </div>
-            <div style="font-size: 0.8rem; color: #94a3b8;">
-              Ancré sur les 64 projets du CIAT • Zéro Hallucination
+            <div>
+              <button class="canned-btn" onclick="CIAT_AI_ASSISTANT.resetConversation()" title="Réinitialiser la discussion">
+                🔄 Nouvelle discussion
+              </button>
             </div>
           </div>
 
-          <!-- Requêtes rapides en un clic -->
+          <!-- Fil de discussion ChatGPT (Messages scrollables) -->
+          <div class="ai-chat-thread" id="ai-chat-thread">
+            <!-- Injecté dynamiquement par JavaScript -->
+          </div>
+
+          <!-- Suggestions rapides en un clic -->
           <div class="ai-canned-queries">
-            <button class="canned-btn" onclick="CIAT_AI_ASSISTANT.askCanned('Quels sont les projets en retard critique et les actions recommandées ?')">
-              ⏳ Projets en retard critique ?
+            <button class="canned-btn" onclick="CIAT_AI_ASSISTANT.askCanned('Salut ! Que peux-tu faire pour m\'aider ?')">
+              👋 Salut !
             </button>
-            <button class="canned-btn" onclick="CIAT_AI_ASSISTANT.askCanned('Génère une synthèse exécutive complète pour le Directeur de l ISEP.')">
-              📑 Synthèse exécutive Direction
+            <button class="canned-btn" onclick="CIAT_AI_ASSISTANT.askCanned('Quels sont les projets en retard critique et les actions urgentes ?')">
+              ⏳ Projets en retard
             </button>
-            <button class="canned-btn" onclick="CIAT_AI_ASSISTANT.askCanned('Quel est le bilan de la parité de genre et les réussites féminines ?')">
-              👩‍💼 Bilan Parité Féminine
+            <button class="canned-btn" onclick="CIAT_AI_ASSISTANT.askCanned('Fais-moi une synthèse exécutive pour la Direction de l\'ISEP.')">
+              📑 Synthèse Direction
             </button>
-            <button class="canned-btn" onclick="CIAT_AI_ASSISTANT.askCanned('Quels sont les projets ayant mobilisé le plus de financements ?')">
-              💰 Top financements mobilisés
+            <button class="canned-btn" onclick="CIAT_AI_ASSISTANT.askCanned('Quel est le bilan de la parité de genre et des réussites féminines ?')">
+              👩‍💼 Parité Féminine
             </button>
-            <button class="canned-btn" onclick="CIAT_AI_ASSISTANT.askCanned('Quelles sont les recommandations stratégiques pour le CIAT ?')">
-              💡 Recommandations stratégiques
+            <button class="canned-btn" onclick="CIAT_AI_ASSISTANT.askCanned('Quels sont les projets les mieux financés ?')">
+              💰 Top Financements
+            </button>
+            <button class="canned-btn" onclick="CIAT_AI_ASSISTANT.askCanned('Comment réussir mon pitch et convaincre le jury d\'évaluation ?')">
+              🎯 Conseils Jury &amp; Pitch
             </button>
           </div>
 
-          <!-- Barre de saisie libre en langage naturel -->
+          <!-- Barre de saisie libre type ChatGPT -->
           <div class="ai-input-row">
-            <input type="text" id="ai-query-input" class="ai-input" placeholder="Posez une question en langage naturel (ex: Quels prototypes sont prêts au transfert ?)" />
-            <button id="btn-ai-submit" class="btn-ai-submit">
-              <span>Interroger l'IA</span>
+            <input type="text" id="ai-query-input" class="ai-input" placeholder="Posez une question, saluez l'IA ou demandez une analyse (ex: Salut ! Comment vas-tu ?)" autocomplete="off" />
+            <button id="btn-ai-submit" class="btn-ai-submit" title="Envoyer le message">
+              <span>Envoyer</span>
               <span>➔</span>
             </button>
-          </div>
-
-          <!-- Zone de réponse dynamique -->
-          <div class="ai-response-box" id="ai-response-box">
-            <div id="ai-response-content"></div>
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 8px;">
-              <span class="ai-source-tag" id="ai-response-source">Source : Données validées CIAT</span>
-              <button class="chart-btn" onclick="CIAT_EXPORT.copyAIReport()">📋 Copier la synthèse</button>
-            </div>
           </div>
         </section>
 

@@ -81,10 +81,10 @@ const App = {
     document.getElementById('filter-search')?.addEventListener('input', () => this.applyFilters());
     document.getElementById('btn-reset-filters')?.addEventListener('click', () => this.resetFilters());
 
-    // Navigation de la barre latérale
-    document.querySelectorAll('.nav-item').forEach(item => {
+    // Navigation de la barre latérale (onglets internes)
+    document.querySelectorAll('.nav-item[data-target]').forEach(item => {
       item.addEventListener('click', (e) => {
-        document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
+        document.querySelectorAll('.nav-item[data-target]').forEach(i => i.classList.remove('active'));
         item.classList.add('active');
         const target = item.dataset.target;
         this.navigateSection(target);

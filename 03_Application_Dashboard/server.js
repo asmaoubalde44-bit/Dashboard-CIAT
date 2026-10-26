@@ -18,8 +18,19 @@ const MIME_TYPES = {
 const appDir = __dirname;
 const rootDir = path.resolve(__dirname, '..');
 
+const TRANSPARENT_ICON = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=', 'base64');
+
 const server = http.createServer((req, res) => {
   let safePath = decodeURIComponent(req.url.split('?')[0]);
+  if (safePath === '/favicon.ico') {
+    res.writeHead(200, {
+      'Content-Type': 'image/png',
+      'Content-Length': TRANSPARENT_ICON.length,
+      'Cache-Control': 'no-cache, no-store, must-revalidate'
+    });
+    res.end(TRANSPARENT_ICON);
+    return;
+  }
   if (safePath === '/' || safePath === '') safePath = '/index.html';
 
   // Liste des emplacements candidats de recherche
@@ -27,6 +38,7 @@ const server = http.createServer((req, res) => {
     path.join(appDir, safePath),
     path.join(rootDir, safePath),
     path.join(rootDir, safePath.replace(/^\//, '')),
+    path.join(appDir, '02_Maquettes_et_Design', path.basename(safePath)),
     path.join(rootDir, '02_Maquettes_et_Design', path.basename(safePath))
   ];
 
@@ -72,6 +84,14 @@ const server = http.createServer((req, res) => {
       res.end(content);
     }
   });
+});
+
+server.on('error', (err) => {
+  if (err.code === 'EADDRINUSE') {
+    console.log(`Port ${PORT} déjà actif, l'application est accessible sur : http://localhost:${PORT}/`);
+  } else {
+    console.error('Erreur serveur:', err);
+  }
 });
 
 server.listen(PORT, () => {
