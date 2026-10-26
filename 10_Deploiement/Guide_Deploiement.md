@@ -22,26 +22,27 @@ L'application est **actuellement active et accessible en temps réel** sur votre
 
 La structure du projet est configurée pour un déploiement instantané sans configuration complexe sur les trois plateformes leaders :
 
-### Option A : Déploiement sur Vercel (Recommandé)
-Le fichier de configuration [`vercel.json`](file:///c:/Users/Pro/Downloads/Evaluations%20_IA_Generative/10_Deploiement/vercel.json) est déjà pré-configuré à la racine :
-1. Installez le CLI Vercel ou connectez votre compte GitHub sur [vercel.com](https://vercel.com).
-2. Lancez simplement la commande à la racine du projet :
-   ```bash
-   npx vercel --prod
-   ```
-3. Vercel génère une URL publique sécurisée (ex: `https://ciat-dashboard-isep.vercel.app`) accessible à tout membre du jury depuis son smartphone ou ordinateur.
+### Option A : Déploiement GitHub Pages (Direct & Gratuit)
+Le code est déjà synchronisé sur votre dépôt officiel :  
+🔗 **Dépôt GitHub :** [`https://github.com/asmaoubalde44-bit/Dashboard-CIAT`](https://github.com/asmaoubalde44-bit/Dashboard-CIAT)
 
-### Option B : Déploiement sur Netlify
-Le fichier [`netlify.toml`](file:///c:/Users/Pro/Downloads/Evaluations%20_IA_Generative/10_Deploiement/netlify.toml) est également fourni :
+Pour activer la page publique accessible au jury en 30 secondes :
+1. Rendez-vous sur : [https://github.com/asmaoubalde44-bit/Dashboard-CIAT/settings/pages](https://github.com/asmaoubalde44-bit/Dashboard-CIAT/settings/pages)
+2. Sous la section **Build and deployment** > **Branch** : choisissez `main` et `/ (root)`.
+3. Cliquez sur **Save**.
+4. Votre application sera instantanément disponible en ligne à l'adresse :  
+   🌐 **`https://asmaoubalde44-bit.github.io/Dashboard-CIAT/`**
+
+### Option B : Déploiement sur Vercel (1-Clic)
+Le fichier [`vercel.json`](file:///c:/Users/Pro/Documents/Evaluations%20_IA_Generative/vercel.json) est prêt à la racine du dépôt :
+1. Rendez-vous sur [vercel.com](https://vercel.com) et connectez votre compte GitHub.
+2. Cliquez sur **Add New > Project** et importez `asmaoubalde44-bit/Dashboard-CIAT`.
+3. Cliquez sur **Deploy** : votre URL HTTPS mondiale sera générée immédiatement.
+
+### Option C : Déploiement sur Netlify Drop (Sans ligne de commande)
 1. Rendez-vous sur [app.netlify.com/drop](https://app.netlify.com/drop).
-2. Glissez-déposez le dossier `03_Application_Dashboard`.
-3. Votre site est déployé mondialement avec certificat HTTPS en moins de 30 secondes.
-
-### Option C : Déploiement sur GitHub Pages
-1. Poussez le répertoire sur un dépôt GitHub.
-2. Allez dans **Settings > Pages**.
-3. Sélectionnez la branche `main` et le dossier `/ (root)` ou `03_Application_Dashboard`.
-4. L'application est publiée sous `https://<votre-compte>.github.io/<nom-repo>/`.
+2. Glissez-déposez simplement le dossier `03_Application_Dashboard`.
+3. Netlify vous attribue un lien public immédiat en moins de 20 secondes.
 
 ---
 
