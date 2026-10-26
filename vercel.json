@@ -1,0 +1,17 @@
+{
+  "version": 2,
+  "public": true,
+  "name": "ciat-decision-dashboard",
+  "builds": [
+    {
+      "src": "03_Application_Dashboard/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/03_Application_Dashboard/$1"
+    }
+  ]
+}
