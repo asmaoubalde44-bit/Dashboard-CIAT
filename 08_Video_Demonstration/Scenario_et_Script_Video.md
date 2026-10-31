@@ -6,10 +6,10 @@
 ---
 
 ## 1. Fiche Technique de la Démonstration
-- **Durée Totale :** 04:30
-- **Format Vidéo Recommandé :** MP4 / WebM Full HD 1080p (60 fps)
+- **Fichier Vidéo Généré :** 🎥 [`Demonstration_CIAT.mp4`](file:///c:/Users/Pro/Documents/Evaluations%20_IA_Generative/08_Video_Demonstration/Demonstration_CIAT.mp4) *(Résolution 1080p Full HD, avec voix off en français)*
+- **Durée de la vidéo :** 01:41
 - **Voix off :** Asmaou Baldé (Développeuse) & Massouda Dieng (Data Analyst & Infographe)
-- **Environnement de Démonstration :** Application déployée sur `http://localhost:3000/`
+- **Environnement de Démonstration :** Application décisionnelle CIAT (ISEP Amadou Trawaré)
 
 ---
 
