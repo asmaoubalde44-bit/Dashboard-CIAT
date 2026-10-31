@@ -5,7 +5,8 @@
 ---
 
 ### Identité du Profil
-- **Rôle :** Responsable Identité Visuelle, UI/UX Design, Ergonomie & Supports Média
+- **Étudiante responsable :** Massouda Dieng
+- **Rôle :** Infographe / UI-UX Designer, Identité Visuelle, Ergonomie & Supports Média
 - **Projet :** Projet 3 - Tableau de Bord Décisionnel Intelligent du CIAT
 - **Promotion :** 2026
 

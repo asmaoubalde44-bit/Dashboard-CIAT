@@ -5,7 +5,8 @@
 ---
 
 ### Identité du Profil
-- **Rôle :** Responsable Modélisation Décisionnelle, Qualité des Données & Analyse Prédictive
+- **Étudiante responsable :** Massouda Dieng
+- **Rôle :** Data Analyst, Modélisation Décisionnelle, Qualité des Données & Analyse Prédictive
 - **Projet :** Projet 3 - Tableau de Bord Décisionnel Intelligent du CIAT
 - **Promotion :** 2026
 

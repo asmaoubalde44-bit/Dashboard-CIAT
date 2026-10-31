@@ -9,9 +9,8 @@
 *Centre d’Innovation, d’Application et de Transfert (CIAT) & Incubateur Technologique*
 
 ### ÉQUIPE DE PROJET (PROMOTION 2026)
-- **Profil Développeur :** Ingénierie logicielle, architecture web responsive, persistance, intégration IA et sécurité.
-- **Profil Data Analyst :** Modélisation décisionnelle, dictionnaire de données, contrôles qualité, KPI et analyses prédictives.
-- **Profil Infographe :** Identité visuelle, logo vectoriel, charte graphique, maquettes multi-écrans et kit de communication.
+- **Asmaou Baldé (Profil Développeur) :** Ingénierie logicielle, architecture web responsive, persistance des données, intégration IA et sécurité.
+- **Massouda Dieng (Profil Data Analyst & Infographe) :** Modélisation décisionnelle, dictionnaire de données, contrôles qualité, KPIs, identité visuelle, logo vectoriel, charte graphique, maquettes multi-écrans et kit de communication.
 
 **Date de soumission :** Octobre 2026  
 **Statut :** Livrable Officiel N°6 (Version Finale Validée)
@@ -49,9 +48,8 @@ Deux scénarios d'utilisateurs clés ont été investigués :
 2. **La Coordination de l'Incubateur & Mentors :** Besoin d'un outil de filtrage quotidien pour identifier sans délai les projets accusant un retard critique (> 20 jours) sur leurs livrables d'ingénierie.
 
 ### 2.2 Synergie des rôles au sein de l'équipe
-- **Le Développeur** a conçu l'ossature technique modulaire (HTML5, Vanilla CSS avec tokens HSL, JavaScript ES6+ réactif, stockage persistant et connecteurs IA).
-- **Le Data Analyst** a formalisé le modèle entité-association, le dictionnaire de données, les règles de calcul des KPIs institutionnels et la stratégie de contrôle d'intégrité.
-- **L'Infographe** a créé l'identité graphique, le logo vectoriel institutionnel CIAT, les maquettes comparatives Desktop/Mobile, l'affiche print A4 et le kit de visuels pour les réseaux sociaux.
+- **Asmaou Baldé (Développeuse)** a conçu l'ossature technique modulaire (HTML5, Vanilla CSS avec tokens HSL, JavaScript ES6+ réactif, stockage persistant et connecteurs IA).
+- **Massouda Dieng (Data Analyst & Infographe)** a formalisé le modèle entité-association, le dictionnaire de données, les règles de calcul des KPIs institutionnels, la stratégie de contrôle d'intégrité, et a créé l'identité graphique, le logo vectoriel institutionnel CIAT, les maquettes comparatives Desktop/Mobile, l'affiche print A4 et le kit de visuels pour les réseaux sociaux.
 
 ---
 

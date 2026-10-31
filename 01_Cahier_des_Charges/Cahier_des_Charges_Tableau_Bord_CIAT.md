@@ -8,9 +8,8 @@
 ### Informations Générales sur le Projet
 - **Intitulé du Projet :** Plateforme Analytique et Tableau de Bord Décisionnel Intelligent du CIAT
 - **Équipe de réalisation :** Équipe CIAT Innovation - ISEP Diamniadio
-  - **Développeur Full-Stack & IA :** Profil Développeur
-  - **Data Analyst & BI :** Profil Data Analyst
-  - **Infographe / UI-UX Designer :** Profil Infographe
+  - **Asmaou Baldé :** Développeuse Full-Stack, Architecture & Intégration IA
+  - **Massouda Dieng :** Data Analyst & Infographe / UI-UX Designer
 - **Cadre d'évaluation :** Évaluation pratique du cours d'Intelligence Artificielle Générative
 - **Version du document :** 1.0 (Validée)
 - **Date :** Octobre 2026

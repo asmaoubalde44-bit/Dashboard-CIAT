@@ -5,7 +5,8 @@
 ---
 
 ### Identité du Profil
-- **Rôle :** Responsable Ingénierie Logicielle, Architecture Web & Intégration de l'IA
+- **Étudiante responsable :** Asmaou Baldé
+- **Rôle :** Développeuse Full-Stack, Architecture Web & Intégration de l'IA
 - **Projet :** Projet 3 - Tableau de Bord Décisionnel Intelligent du CIAT
 - **Promotion :** 2026
 

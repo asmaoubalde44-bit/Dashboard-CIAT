@@ -8,7 +8,7 @@
 ## 1. Fiche Technique de la Démonstration
 - **Durée Totale :** 04:30
 - **Format Vidéo Recommandé :** MP4 / WebM Full HD 1080p (60 fps)
-- **Voix off :** Équipe CIAT Innovation (Développeur, Data Analyst, Infographe)
+- **Voix off :** Asmaou Baldé (Développeuse) & Massouda Dieng (Data Analyst & Infographe)
 - **Environnement de Démonstration :** Application déployée sur `http://localhost:3000/`
 
 ---
@@ -19,7 +19,7 @@
 - **Plan Visuel :**
   - Écran d'accueil de l'application avec le logo officiel vectoriel du CIAT et de l'ISEP Amadou Trawaré.
   - Vue d'ensemble du dashboard en mode sombre haute fidélité.
-- **Voix-off (Infographe / Présentateur) :**
+- **Voix-off (Massouda Dieng / Présentation & Infographe) :**
   > « Bonjour à tous les membres du jury. Bienvenue dans la présentation officielle du Tableau de Bord Décisionnel Intelligent du CIAT de l’ISEP Amadou Trawaré de Diamniadio.
   > Face à la montée en puissance de notre incubateur, qui compte aujourd'hui plus de 60 projets innovants répartis sur 4 promotions, notre gouvernance avait besoin d'un outil unifié, moderne et performant pour piloter les innovations, garantir la parité et anticiper les retards sur les prototypes. Voici la solution que nous avons conçue. »
 
@@ -30,7 +30,7 @@
   - Zoom sur la barre latérale de navigation et les 6 cartes d'indicateurs clés (KPI Cards).
   - Micro-animation au survol des cartes.
   - Bascule rapide en mode clair (Light Mode) puis retour en mode sombre.
-- **Voix-off (Développeur & Infographe) :**
+- **Voix-off (Asmaou Baldé & Massouda Dieng) :**
   > « Conçue selon une charte graphique premium respectant les couleurs historiques de l'ISEP — le bordeaux imperial et l'or solaire de Diamniadio —, notre interface est 100% responsive.
   > En haut de page, 6 indicateurs clés se rafraîchissent instantanément : 260 idées reçues, 64 projets incubés, 39 prototypes validés, 130 millions de FCFA de financements mobilisés, et une parité féminine exemplaire de 42,2%. Enfin, le compteur rouge signale en temps réel 8 alertes sur les jalons de nos apprenants. »
 
@@ -42,7 +42,7 @@
   - Clic direct sur la barre *« TIC, IA et Données »* du graphique vectoriel.
   - Survol du Donut de parité de genre et du Funnel de conversion.
   - Défilement du tableau opérationnel avec badges colorés des retards.
-- **Voix-off (Data Analyst) :**
+- **Voix-off (Massouda Dieng / Data Analyst) :**
   > « Côté analyse de données, tous les filtres sont interconnectés. Lorsque je filtre sur la promotion 2024 ou que je clique directement sur la filière TIC, l'ensemble du cockpit se recalcule en moins de 50 millisecondes.
   > Notre entonnoir d'incubation démontre que 61% de nos idées retenues aboutissent à un prototype fonctionnel opérationnel. Le tableau dynamique ci-dessous permet un suivi jalon par jalon, identifiant chaque porteur, son statut calendaire précis et les subventions accordées. »
 
@@ -55,7 +55,7 @@
   - Clic sur *« 📑 Synthèse exécutive Direction »*.
   - Saisie libre d'une question dans le champ texte : *« Quels sont les financements par domaine ? »*.
   - Clic sur le bouton *« 📋 Copier la synthèse »* avec notification toast.
-- **Voix-off (Développeur IA) :**
+- **Voix-off (Asmaou Baldé / Développeuse & Intégration IA) :**
   > « Le cœur innovant de notre plateforme réside dans son Assistant Décisionnel propulsé par l'IA générative.
   > Grâce à un prompt système rigoureux ancré sur les données certifiées du CIAT, l'assistant répond en langage naturel sans aucune hallucination. En un clic sur 'Projets en retard', il fournit un diagnostic précis listant les 8 projets critiques avec le nombre de jours de retard exact et préconise des mesures concrètes d'arbitrage. En demandant une synthèse exécutive, le Directeur dispose en 2 secondes d'un compte-rendu consolidé prêt pour le Conseil d'Administration. »
 
@@ -67,7 +67,7 @@
   - Clic sur *« Exporter en Excel / CSV »* (téléchargement immédiat du fichier).
   - Clic sur *« Rapport Synthèse (PDF) »* (ouverture de la fenêtre d'impression stylisée).
   - Affichage de l'affiche de lancement officielle A4 et des maquettes mobiles.
-- **Voix-off (Équipe au complet) :**
+- **Voix-off (Asmaou Baldé & Massouda Dieng) :**
   > « Pour garantir l'évolutivité, le coordinateur peut ajouter un nouveau projet via notre formulaire validé qui persiste en base locale. Les exports en CSV pour Excel et en PDF pour la direction sont immédiatement exploitables.
   > Avec ce Tableau de Bord Décisionnel Intelligent, l'ISEP Amadou Trawaré de Diamniadio se dote d'un outil d'excellence à la hauteur de ses ambitions de souveraineté technologique. Nous vous remercions pour votre attention et sommes à votre disposition pour vos questions ! »
 
